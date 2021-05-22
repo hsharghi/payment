@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link href="https://v1.fontapi.ir/css/Vazir" rel="stylesheet" />
-    <title>{!! isset($inputs['title']) ? $inputs['title'] : 'درگاه پرداخت تست' !!}) ?></title>
+    <title>{!! isset($inputs['title']) ? $inputs['title'] : 'درگاه پرداخت تست' !!}</title>
     <style>
       html {
         font-family: "Vazir", sans-serif;
@@ -78,23 +78,23 @@
     <form action="{!! isset($inputs['successUrl']) ? $inputs['successUrl'] : '#' !!}" method="post" id="success_form"></form>
     <form action="{!! isset($inputs['cancelUrl']) ? $inputs['cancelUrl'] : '#' !!}" method="post" id="cancel_form"></form>
     <div class="container">
-      <h2>{!! isset($inputs['title']) ? $inputs['title'] : 'Title' !!}) ?></h2>
-      <p>{!! isset($inputs['description']) ? $inputs['description'] : 'توضیحات' !!}) ?></p>
+      <h2>{!! isset($inputs['title']) ? $inputs['title'] : 'Title' !!}</h2>
+      <p>{!! isset($inputs['description']) ? $inputs['description'] : 'توضیحات' !!}</p>
       <div class="tbl">
         <div class="row">
-          <div class="cell">{!! isset($inputs['orderLabel']) ? $inputs['orderLabel'] : 'شماره سفارش' !!}) ?></div>
-          <div class="cell">{!! isset($inputs['orderId']) ? $inputs['orderId'] : !!} : '') ?></div>
+          <div class="cell">{!! isset($inputs['orderLabel']) ? $inputs['orderLabel'] : 'شماره سفارش' !!}</div>
+          <div class="cell">{!! isset($inputs['orderId']) ? $inputs['orderId'] : '' !!}</div>
         </div>
         <div class="row">
-          <div class="cell">{!! isset($inputs['amountLabel']) ? $inputs['amountLabel'] : 'مبلغ قابل پرداخت' !!} : ) ?></div>
-          <div class="cell">{!! isset($inputs['price']) ? $inputs['price'] : 0 !!}) ?></div>
+          <div class="cell">{!! isset($inputs['amountLabel']) ? $inputs['amountLabel'] : 'مبلغ قابل پرداخت' !!}</div>
+          <div class="cell">{!! isset($inputs['price']) ? $inputs['price'] : 0 !!}</div>
         </div>
         <div class="row">
           <div class="cell">
-            <div id="success" class="button success">{!! isset($inputs['payButton']) ? $inputs['payButton'] : 'Success' !!}) ?></div>
+            <div id="success" class="button success">{!! isset($inputs['payButton']) ? $inputs['payButton'] : 'Success' !!}</div>
           </div>
           <div class="cell">
-            <div id="cancel" class="button cancel">{!! isset($inputs['cancelButton']) ? $inputs['cancelButton'] : 'Cancel' !!}) ?></div>
+            <div id="cancel" class="button cancel">{!! isset($inputs['cancelButton']) ? $inputs['cancelButton'] : 'Cancel' !!}</div>
           </div>
         </div>
       </div>
