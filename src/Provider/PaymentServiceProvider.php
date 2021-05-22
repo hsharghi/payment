@@ -33,8 +33,7 @@ class PaymentServiceProvider extends ServiceProvider
          */
         $this->publishes(
             [
-                __DIR__.'/../../resources/views' => resource_path('views/vendor/shetabitPayment'),
-                __DIR__.'/../../resources/views' => resource_path('views/vendor/localForm'),
+                __DIR__.'/../../resources/views' => resource_path('views/vendor/shetabitPayment')
             ],
             'views'
         );
