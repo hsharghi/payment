@@ -1,59 +1,118 @@
-<form action="{!! isset($inputs['successUrl']) ? $inputs['successUrl'] : '#' !!}" method="post" id="success_form"></form>
-<form action="{!! isset($inputs['cancelUrl']) ? $inputs['cancelUrl'] : '#' !!}" method="post" id="cancel_form"></form>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="https://v1.fontapi.ir/css/Vazir" rel="stylesheet" />
+    <title>{!! isset($inputs['title']) ? $inputs['title'] : 'درگاه پرداخت تست' !!}) ?></title>
+    <style>
+      html {
+        font-family: "Vazir", sans-serif;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      form {
+        text-align: center;
+        margin-top: 2px;
+      }
 
+      h2,
+      p {
+        text-align: center;
+        margin: 0;
+      }
+      h2 {
+        font-weight: 900;
+      }
+      p {
+        color: darkgray;
+      }
+      .tbl {
+        display: flex;
+        flex-direction: column;
+        min-width: 400px;
+        max-width: 500px;
+        margin-top: 50px;
+        background-color: #efefef;
+        padding: 20px;
+        border-radius: 20px;
+      }
+      .row {
+        display: flex;
+        min-height: 50px;
+      }
+      .cell:nth-child(2) {
+        color: slategray;
+      }
+      .cell {
+        flex: 1;
+      }
+      .row .cell {
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        border-radius: 6px;
+        outline: none;
+        cursor: pointer;
+      }
 
-<h2 style="text-align: center;">{!! isset($inputs['title']) ? $inputs['title'] : 'Title' !!}</h2>
-<h4 style="text-align: center; color: darkgray">{!! isset($inputs['description']) ? $inputs['description'] : 'Description' !!}</h4>
-<table dir="rtl" style="margin-left: auto; margin-right: auto; width: 454px;">
-<tbody>
-<tr>
-	<td style="text-align: center; width: 200px;">
-		<h4><span style="color: #000000;">{!! isset($inputs['orderLabel']) ? $inputs['orderLabel'] : 'Order no.' !!}</span></h4>
-	</td>
-	<td style="text-align: center; width: 54px;">&nbsp;</td>
-	<td style="text-align: center; width: 200px;">{!! isset($inputs['orderId']) ? $inputs['orderId'] : '' !!}</td>
-</tr>
-<tr>
-	<td style="text-align: center; width: 200px;">
-		<h4>{!! isset($inputs['amountLabel']) ? $inputs['amountLabel'] : 'Amount' !!}</h4>
-	</td>
-	<td style="text-align: center; width: 54px;">&nbsp;</td>
-	<td style="text-align: center; width: 200px;">{!! isset($inputs['price']) ? $inputs['price'] : 0 !!}</td>
-</tr>
-<tr>
-<td style="text-align: center; width: 200px;">&nbsp;</td>
-<td style="text-align: center; width: 54px;">&nbsp;</td>
-<td style="text-align: center; width: 200px;">&nbsp;</td>
-</tr>
-<tr>
-<td style="text-align: center; width: 200px;">
-<div id="success">
-<h2><span style="background-color: #008000; color: #ffffff;">&nbsp;{!! isset($inputs['payButton']) ? $inputs['payButton'] : 'Success' !!}&nbsp; &nbsp; </span></h2>
-</div>
-</td>
-<td style="text-align: center; width: 54px;"><span style="color: #ffffff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></td>
-<td style="text-align: center; width: 200px;">
-<div id="cancel">
-<h2><span style="background-color: #ff6600; color: #ffffff;">&nbsp; {!! isset($inputs['cancelButton']) ? $inputs['cancelButton'] : 'Cancel' !!} &nbsp; &nbsp;</span></h2>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+      .success {
+        background-color: green;
+      }
+
+      .cancel {
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="{!! isset($inputs['successUrl']) ? $inputs['successUrl'] : '#' !!}" method="post" id="success_form"></form>
+    <form action="{!! isset($inputs['cancelUrl']) ? $inputs['cancelUrl'] : '#' !!}" method="post" id="cancel_form"></form>
+    <div class="container">
+      <h2>{!! isset($inputs['title']) ? $inputs['title'] : 'Title' !!}) ?></h2>
+      <p>{!! isset($inputs['description']) ? $inputs['description'] : 'توضیحات' !!}) ?></p>
+      <div class="tbl">
+        <div class="row">
+          <div class="cell">{!! isset($inputs['orderLabel']) ? $inputs['orderLabel'] : 'شماره سفارش' !!}) ?></div>
+          <div class="cell">{!! isset($inputs['orderId']) ? $inputs['orderId'] : !!} : '') ?></div>
+        </div>
+        <div class="row">
+          <div class="cell">{!! isset($inputs['amountLabel']) ? $inputs['amountLabel'] : 'مبلغ قابل پرداخت' !!} : ) ?></div>
+          <div class="cell">{!! isset($inputs['price']) ? $inputs['price'] : 0 !!}) ?></div>
+        </div>
+        <div class="row">
+          <div class="cell">
+            <div id="success" class="button success">{!! isset($inputs['payButton']) ? $inputs['payButton'] : 'Success' !!}) ?></div>
+          </div>
+          <div class="cell">
+            <div id="cancel" class="button cancel">{!! isset($inputs['cancelButton']) ? $inputs['cancelButton'] : 'Cancel' !!}) ?></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
 <script type="text/javascript">
-var success_button = document.getElementById('success');
-var cancel_button = document.getElementById('cancel');
+  var success_button = document.getElementById("success");
+  var cancel_button = document.getElementById("cancel");
 
-success_button.style.cursor = 'pointer';
-success_button.onclick = function() {
-	var f=document.getElementById('success_form');
-	f.submit();
-};
+  success_button.onclick = function () {
+    var f = document.getElementById("success_form");
+    f.submit();
+  };
 
-cancel_button.style.cursor = 'pointer';
-cancel_button.onclick = function() {
-	var f=document.getElementById('cancel_form');
-	f.submit();
-};
-
+  cancel_button.onclick = function () {
+    var f = document.getElementById("cancel_form");
+    f.submit();
+  };
 </script>
