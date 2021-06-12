@@ -4,6 +4,7 @@ namespace Shetabit\Payment\Provider;
 
 use Shetabit\Multipay\Payment;
 use Illuminate\Support\ServiceProvider;
+use Shetabit\Payment\Events\DriverChangeEvent;
 use Shetabit\Payment\Events\InvoicePurchasedEvent;
 use Shetabit\Payment\Events\InvoiceVerifiedEvent;
 
@@ -83,6 +84,10 @@ class PaymentServiceProvider extends ServiceProvider
 
         Payment::addVerifyListener(function ($reciept, $driver, $invoice) {
             event(new InvoiceVerifiedEvent($reciept, $driver, $invoice));
+        });
+
+        Payment::addChangeDriverListener(function ($driver) {
+            event(new DriverChangeEvent($driver));
         });
     }
 }
