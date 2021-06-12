@@ -61,7 +61,7 @@ class PaymentServiceProvider extends ServiceProvider
 
         // use blade to render redirection form
         Payment::setRedirectionFormViewRenderer(function ($view, $action, $inputs, $method) {
-            return view('shetabitPayment::redirectForm')->with(
+            return view('shetabitPayment::localForm')->with(
                 [
                     'action' => $action,
                     'inputs' => $inputs,
